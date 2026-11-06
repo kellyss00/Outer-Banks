@@ -1,0 +1,648 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Outer Banks | Aventura e Mistério</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700&family=Special+Elite&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --verde: #34483A;
+  --escuro: #1C2520;
+  --areia: #E8D8B8;
+  --dourado: #C9A45C;
+  --marrom: #8B6244;
+  --verde-claro: #52654A;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: var(--escuro);
+  color: var(--areia);
+  line-height: 1.7;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  border-radius: 18px;
+}
+
+header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  padding: 22px 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  z-index: 10;
+}
+
+.logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 38px;
+  letter-spacing: 4px;
+  color: var(--dourado);
+}
+
+nav {
+  display: flex;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: var(--areia);
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: .3s;
+}
+
+nav a:hover {
+  color: var(--dourado);
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 150px 10% 90px;
+  background:
+    linear-gradient(90deg, rgba(18,29,22,.91), rgba(18,29,22,.25)),
+    linear-gradient(0deg, var(--escuro), transparent 35%),
+    url('https://wallpapercat.com/w/full/e/7/0/2079683-2560x1706-desktop-hd-outer-banks-tv-series-background.jpg')
+    center/cover;
+}
+
+.hero-content {
+  max-width: 720px;
+}
+
+.tag {
+  color: var(--dourado);
+  letter-spacing: 3px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(78px, 14vw, 150px);
+  line-height: .88;
+  letter-spacing: 5px;
+  margin: 25px 0;
+  text-shadow: 3px 4px 0 rgba(0,0,0,.2);
+}
+
+.hero p {
+  max-width: 540px;
+  margin-bottom: 30px;
+  color: #F1E8D7;
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 25px;
+  border: 1px solid var(--dourado);
+  border-radius: 30px;
+  background: var(--dourado);
+  color: #20271F;
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: .3s;
+}
+
+.btn:hover {
+  background: transparent;
+  color: var(--areia);
+  transform: translateY(-3px);
+}
+
+section {
+  padding: 90px 8%;
+  scroll-margin-top: 25px;
+}
+
+.section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(42px, 6vw, 65px);
+  line-height: 1.1;
+  letter-spacing: 2px;
+  margin: 12px 0 18px;
+}
+
+.section-intro {
+  max-width: 700px;
+  color: #D2D4C9;
+  margin-bottom: 35px;
+}
+
+.about {
+  background: var(--verde);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 55px;
+  align-items: center;
+}
+
+.about-image {
+  min-height: 400px;
+  border-radius: 28px;
+  background:
+    linear-gradient(0deg, rgba(28,37,32,.12), transparent),
+    url('https://4kwallpapers.com/images/wallpapers/outer-banks-poster-2880x1800-19898.jpg')
+    center/cover;
+  box-shadow: 12px 12px 0 rgba(201,164,92,.25);
+}
+
+.about-text p {
+  margin: 18px 0;
+  color: #F0E9DB;
+}
+
+.characters {
+  background: var(--escuro);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.card {
+  overflow: hidden;
+  background: #28352B;
+  border: 1px solid rgba(232,216,184,.13);
+  border-radius: 24px;
+  transition: transform .3s, box-shadow .3s;
+}
+
+.card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 15px 35px rgba(0,0,0,.22);
+}
+
+.card img {
+  width: calc(100% - 16px);
+  height: 230px;
+  margin: 8px 8px 0;
+  object-fit: cover;
+  border-radius: 18px;
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.card h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 31px;
+  letter-spacing: 1px;
+  color: var(--dourado);
+  margin-bottom: 5px;
+}
+
+.card p {
+  font-size: 13px;
+  color: #E0DFD3;
+}
+
+.photo-note {
+  margin-top: 25px;
+  font-size: 12px;
+  color: #BFC6B9;
+}
+
+.seasons {
+  background: var(--areia);
+  color: #302D24;
+}
+
+.seasons .section-intro {
+  color: #615A4B;
+}
+
+.season-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.season {
+  padding: 30px;
+  background: #F3E8D3;
+  border: 1px solid #D5C19B;
+  border-left: 5px solid var(--marrom);
+  border-radius: 8px 22px 22px 8px;
+  transition: transform .3s;
+}
+
+.season:hover {
+  transform: translateY(-4px);
+}
+
+.season span {
+  font-family: 'Special Elite', cursive;
+  color: var(--marrom);
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.season h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 32px;
+  margin: 8px 0;
+}
+
+.season p {
+  font-size: 13px;
+}
+
+.treasure {
+  text-align: center;
+  background:
+    linear-gradient(rgba(21,34,25,.91), rgba(21,34,25,.95)),
+    url('https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=1800&q=85')
+    center/cover;
+}
+
+.treasure .section-intro {
+  margin: 0 auto 25px;
+}
+
+.map-image {
+  width: min(100%, 520px);
+  height: 260px;
+  margin: 30px auto;
+  object-fit: cover;
+  border: 5px solid rgba(201,164,92,.6);
+  border-radius: 30px;
+  transform: rotate(-1deg);
+}
+
+.compass {
+  font-size: 65px;
+  color: var(--dourado);
+  margin: 15px 0;
+}
+
+.quote {
+  max-width: 700px;
+  margin: 35px auto;
+  padding: 25px;
+  text-align: left;
+  font-family: 'Special Elite', cursive;
+  font-size: 19px;
+  line-height: 1.8;
+  border-left: 4px solid var(--dourado);
+  border-radius: 0 18px 18px 0;
+  background: rgba(255,255,255,.05);
+}
+
+footer {
+  padding: 30px 8%;
+  text-align: center;
+  background: #111813;
+  color: #BFC6B9;
+  font-size: 12px;
+}
+
+footer span {
+  color: var(--dourado);
+}
+
+@media (max-width: 850px) {
+  header {
+    justify-content: center;
+    padding: 18px 5%;
+    background: rgba(28,37,32,.9);
+  }
+
+  nav {
+    justify-content: center;
+    gap: 13px;
+  }
+
+  nav a {
+    font-size: 10px;
+  }
+
+  .hero {
+    min-height: 90vh;
+    padding: 175px 7% 80px;
+  }
+
+  section {
+    padding: 65px 7%;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .about-image {
+    min-height: 300px;
+  }
+
+  .cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .card img {
+    height: 200px;
+  }
+
+  .season-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .card img {
+    height: 250px;
+  }
+
+  .logo {
+    font-size: 32px;
+  }
+
+  h1 {
+    font-size: 82px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a class="logo" href="#inicio" style="text-decoration:none">OBX.</a>
+
+  <nav>
+    <a href="#inicio">Início</a>
+    <a href="#serie">A série</a>
+    <a href="#personagens">Personagens</a>
+    <a href="#temporadas">Temporadas</a>
+    <a href="#tesouro">Tesouro</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="hero" id="inicio">
+    <div class="hero-content">
+      <span class="tag">Sol, segredos e liberdade</span>
+
+      <h1>OUTER<br>BANKS</h1>
+
+      <p>
+        Uma ilha cheia de mistérios, amizades que desafiam tudo
+        e tesouros escondidos à espera de serem descobertos.
+        O próximo capítulo dessa aventura começa aqui.
+      </p>
+
+      <a class="btn" href="#serie">Entrar nesse universo</a>
+    </div>
+  </section>
+
+  <section class="about" id="serie">
+    <div class="about-grid">
+
+      <div class="about-text">
+        <span class="tag">Bem-vindo a OBX</span>
+
+        <h2 class="section-title">Onde tudo vira aventura</h2>
+
+        <p>
+          Outer Banks é uma série de aventura e mistério que acompanha
+          um grupo de adolescentes em uma jornada marcada por
+          descobertas, segredos de família e buscas por tesouros.
+        </p>
+
+        <p>
+          Entre os Pogues e os Kooks, diferenças sociais, amizades
+          e escolhas difíceis fazem parte de uma história em que
+          cada pista pode mudar o rumo das coisas.
+        </p>
+
+        <a class="btn" href="#personagens">Conhecer a turma</a>
+      </div>
+
+      <div class="about-image" role="img"
+           aria-label="Praia tropical ao pôr do sol"></div>
+
+    </div>
+  </section>
+
+  <section class="characters" id="personagens">
+    <span class="tag">Conheça os Pogues</span>
+
+    <h2 class="section-title">Personagens</h2>
+
+    <p class="section-intro">
+      Cada integrante tem sua personalidade, suas escolhas e um
+      papel importante nas aventuras da série.
+    </p>
+
+    <div class="cards">
+
+      <article class="card">
+        <img
+          src="https://s.yimg.com/lo/mysterio/api/daa71fac0f9f5727b4417532c592b9047d3e08f4ffc9953c99caad632d4af234/lightyear_networkapi/resizefill_w960%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fcinemablend_388%2F62f4dbaef7ad218bdaeb7b5c8d1a47b1"
+          alt="John B">
+        <div class="card-content">
+          <h3>John B</h3>
+          <p>
+            Determinado e aventureiro, acaba envolvido em uma busca
+            por um tesouro ligado à história de sua família.
+          </p>
+        </div>
+      </article>
+
+      <article class="card">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7OfI9w2DVWVIltWP8Bot1Z94gLQiLN-4bModNEpyxjKCFnV4hFSuJmqET&s=10"
+          alt="Foto ilustrativa de uma jovem">
+        <div class="card-content">
+          <h3>Sarah Cameron</h3>
+          <p>
+            Questiona o mundo em que cresceu e começa a enxergar
+            a vida por uma perspectiva diferente.
+          </p>
+        </div>
+      </article>
+
+      <article class="card">
+        <img
+          src="https://static0.colliderimages.com/wordpress/wp-content/uploads/2024/10/outer-banks-rudy-pankow.jpg?w=1200&h=675&fit=crop"
+          alt="Foto ilustrativa de um jovem">
+        <div class="card-content">
+          <h3>JJ Maybank</h3>
+          <p>
+            Corajoso, impulsivo e leal, está disposto a enfrentar
+            grandes desafios para ajudar os amigos.
+          </p>
+        </div>
+      </article>
+
+      <article class="card">
+        <img
+          src="https://images2.minutemediacdn.com/image/upload/c_crop,w_2560,h_1440,x_0,y_18/images/ImageExchange/mmsport/340/01m0fnbct6dk4rkdstn7.jpg"
+          alt="Foto ilustrativa de uma jovem">
+        <div class="card-content">
+          <h3>Kiara Carrera</h3>
+          <p>
+            Independente e determinada, valoriza a natureza,
+            as amizades e aquilo em que acredita.
+          </p>
+        </div>
+      </article>
+
+      <article class="card">
+        <img
+          src="https://i.pinimg.com/736x/33/d5/1e/33d51e93bf6666843823f9cfddd49367.jpg"
+          alt="Foto ilustrativa de um jovem">
+        <div class="card-content">
+          <h3>Pope Heyward</h3>
+          <p>
+            Inteligente e observador, usa seu conhecimento para
+            ajudar o grupo a desvendar os mistérios.
+          </p>
+        </div>
+      </article>
+
+      <article class="card">
+        <img
+          src="https://static.wikia.nocookie.net/p__/images/2/2a/Cleo_Anderson_%28Outer_Banks%29.jpg/revision/latest?cb=20241027154029&path-prefix=protagonist"
+          alt="Foto ilustrativa de uma jovem">
+        <div class="card-content">
+          <h3>Cleo</h3>
+          <p>
+            Esperta, habilidosa e corajosa, torna-se uma importante
+            aliada nas aventuras do grupo.
+          </p>
+        </div>
+      </article>
+
+    </div>
+
+  </section>
+
+  <section class="seasons" id="temporadas">
+    <span class="tag">Uma pista leva à outra</span>
+
+    <h2 class="section-title">Temporadas</h2>
+
+    <p class="section-intro">
+      Explore os principais temas de cada temporada sem revelar
+      os grandes acontecimentos da história.
+    </p>
+
+    <div class="season-grid">
+
+      <article class="season">
+        <span>TEMPORADA 01</span>
+        <h3>O início da busca</h3>
+        <p>
+          Uma descoberta inesperada dá início a uma jornada
+          cheia de pistas, perigos e segredos de família.
+        </p>
+      </article>
+
+      <article class="season">
+        <span>TEMPORADA 02</span>
+        <h3>Novos desafios</h3>
+        <p>
+          A busca continua e leva o grupo a novos lugares,
+          com obstáculos que testam a confiança entre amigos.
+        </p>
+      </article>
+
+      <article class="season">
+        <span>TEMPORADA 03</span>
+        <h3>Uma cidade lendária</h3>
+        <p>
+          Lendas, descobertas e uma nova busca fazem os amigos
+          questionarem até onde estão dispostos a ir.
+        </p>
+      </article>
+
+      <article class="season">
+        <span>TEMPORADA 04</span>
+        <h3>Segredos e consequências</h3>
+        <p>
+          Novas pistas abrem caminho para outra aventura,
+          com escolhas difíceis e desafios inesperados.
+        </p>
+      </article>
+
+      <article class="season">
+        <span>TEMPORADA 05</span>
+        <h3>O capítulo final</h3>
+        <p>
+          Um espaço dedicado à temporada final, com informações
+          e novidades sem antecipar os acontecimentos.
+        </p>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="treasure" id="tesouro">
+    <span class="tag">O mapa está em suas mãos</span>
+
+    <div class="compass">✧</div>
+
+    <h2 class="section-title">A caça ao tesouro</h2>
+
+    <img
+      class="map-image"
+      src="https://revistaanamaria.com.br/wp-content/uploads/2024/12/httpsrevistaanamaria.com_.brmediauploads202409outerbanks_401_unit_02651rc-1-1.jpg"
+      alt="Livro antigo que lembra um mapa de aventura">
+
+    <div class="quote">
+      Cada pista guarda uma história. Cada escolha leva
+      a um caminho. Nem todo tesouro é encontrado por acaso.
+    </div>
+
+</main>
+
+<footer>
+  <p>Feito por Kelly Rodrigues / <span>Outer Banks</span>.</p>
+  <p>Projeto de fã não oficial. Todos os direitos da série
+     pertencem aos respectivos titulares.</p>
+</footer>
+
+</body>
+</html>
